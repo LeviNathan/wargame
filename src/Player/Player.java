@@ -37,14 +37,31 @@ public class Player {
         this.playerDeck = playerDeck;
     }
 
+    /**
+     * @return
+     * Takes a card from the top of the player's deck
+     * to be played.
+     */
     public Card playCard() {
         return playerDeck.removeCardFromTop();
     }
 
+    /**
+     * @param cardsWon
+     * Adding cards to the bottom of the player's deck
+     * Will be utilized when dealing the cards and 
+     * when winning cards in variation1.
+     */ 
     public void addCardsToDeck(Deck cardsWon) {
         playerDeck.addCardToBottom(cardsWon);
     }
 
+    /**
+     * @param cardsWon
+     * Adding the cards won into the score instead of
+     * back into the deck. This function is for 
+     * variation2 and variation3
+     */
     public void addingScore(Deck cardsWon) {
         while(!cardsWon.isEmpty()) {
             cardsWon.removeCardFromTop();
