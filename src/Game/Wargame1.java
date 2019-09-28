@@ -21,4 +21,11 @@ public class Wargame1 extends WargameOriginal {
         this.numOfRounds = numOfRounds;
     }
 
+    public void setPlayerScore(ArrayList<Player> playerList) {
+        for (int i = 0; i < getNumOfPlayers(); i++) {
+            playerList.get(i).setScore(playerList.get(i).getPlayerDeck().getSize());
+        }
+    }
+
+    
 }

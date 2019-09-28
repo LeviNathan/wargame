@@ -1,5 +1,5 @@
 import Deck.*;
-import Game.WargameOriginal;
+import Game.*;
 import Player.*;
 import java.util.*;
 
@@ -25,27 +25,39 @@ public class temp{
         Stack<Card> masterStack = new Stack<Card>();
         Deck masterDeck = new Deck(masterStack, 0);
         masterDeck.initializeDeck();
-        WargameOriginal game = new WargameOriginal(players.size(), players, masterDeck);
+        //WargameOriginal game = new WargameOriginal(players.size(), players, masterDeck);
         
         //System.out.println(game.getMasterDeck().getDeck());
-        game.dealCards();
+        //game.dealCards();
+        System.out.println("Game1");
+        Wargame1 game1 = new Wargame1(players, masterDeck, 10);
+        //game1.dealCards();
+        System.out.println(game1.getNumOfPlayers());
 
-        /*for (int i = 0; i < game.getNumOfPlayers(); i++) {
-            System.out.println();
-            System.out.println(game.getPlayerList().get(i).getPlayerDeck().getDeck());
-        }*/
 
-        System.out.println(game.getMasterDeck().getSize());
-        for (int i = 0; i < game.getNumOfPlayers(); i++) {
+        System.out.println("Game2");
+        Wargame2 game2 = new Wargame2(2, players, masterDeck);
+        //game2.dealCards();
+        System.out.println(game2.getNumOfPlayers());
+
+        System.out.println("Game3");
+        Wargame3 game3 = new Wargame3(players, masterDeck);
+        game3.dealCards();
+        System.out.println(game3.getNumOfPlayers());
+        
+
+        System.out.println(game3.getMasterDeck().getSize());
+        for (int i = 0; i < game3.getNumOfPlayers(); i++) {
             System.out.println();
-            System.out.println(game.getPlayerList().get(i).getPlayerDeck().getSize());
+            System.out.println(game3.getPlayerList().get(i).getPlayerDeck().getSize());
         }
 
-        game.playCards();
-        for (int i = 0; i < game.getNumOfPlayers(); i++) {
+        game3.playCards();
+        for (int i = 0; i < game3.getNumOfPlayers(); i++) {
             System.out.println();
-            System.out.println(game.getPlayerList().get(i).getPlayerDeck().getSize());
+            System.out.println(game3.getPlayerList().get(i).getPlayerDeck().getSize());
         }
+
 
         /*
         System.out.println(player.getPlayerDeck().getDeck());
