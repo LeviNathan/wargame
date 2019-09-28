@@ -53,6 +53,10 @@ public class WargameOriginal {
         }
     }
 
+    public void startGame() {
+        // This might have to be in Wargame1 and Wargame2
+    }
+
     public void playCards() {
         Stack<Card> playedCards = new Stack<Card>();
         Deck cardsPlayed = new Deck(playedCards, 0);
@@ -65,6 +69,7 @@ public class WargameOriginal {
     }
 
     public void findRoundWinner(Deck playedCards) {
+<<<<<<< HEAD
         int winScore = 0;
         String winner = "";
         
@@ -101,5 +106,9 @@ public class WargameOriginal {
                 System.out.printf("%s %d", playerList.get(i).getName(), playerList.get(i).getScore());
         }
         System.out.println();
+=======
+        // TODO: Account for War! situation
+        // TODO: Add cards to score or add to score pile.
+>>>>>>> 8886e7b2bda3917a8a66c8f487dbcdce53620623
     }
 }

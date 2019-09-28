@@ -8,7 +8,9 @@ public class Wargame2 extends WargameOriginal{
 
     public Wargame2(int numOfPlayers, ArrayList<Player> playerList, Deck masterDeck) {
         super(numOfPlayers, playerList, masterDeck);
-
     }
     
+    public void addCardsToScorePile() {
+        
+    }
 }
