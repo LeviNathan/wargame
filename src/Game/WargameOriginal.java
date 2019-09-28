@@ -8,6 +8,7 @@ public class WargameOriginal {
     private int numOfPlayers;
     private ArrayList<Player> playerList;
     private Deck masterDeck;
+    private Deck scorePile;
 
     public WargameOriginal(int numOfPlayers, ArrayList<Player> playerList, Deck masterDeck) {
         this.numOfPlayers = numOfPlayers;
@@ -37,6 +38,14 @@ public class WargameOriginal {
 
     public void setMasterDeck(Deck masterDeck) {
         this.masterDeck = masterDeck;
+    }
+
+    public Deck getScorePile() {
+        return scorePile;
+    }
+
+    public void setScorePile(Deck scorePile) {
+        this.scorePile = scorePile;
     }
 
     /**
@@ -69,7 +78,6 @@ public class WargameOriginal {
     }
 
     public void findRoundWinner(Deck playedCards) {
-<<<<<<< HEAD
         int winScore = 0;
         String winner = "";
         
@@ -106,9 +114,18 @@ public class WargameOriginal {
                 System.out.printf("%s %d", playerList.get(i).getName(), playerList.get(i).getScore());
         }
         System.out.println();
-=======
-        // TODO: Account for War! situation
-        // TODO: Add cards to score or add to score pile.
->>>>>>> 8886e7b2bda3917a8a66c8f487dbcdce53620623
     }
+
+    public String warRound(ArrayList<Player> players) {
+        Stack<Card> playedCards = new Stack<Card>();
+        Stack<Card> scorePileStack = new Stack<Card>();
+        Deck cardsPlayed = new Deck(playedCards, 0);
+        for (int i = 0; i < players.size(); i++) {
+            scorePileStack.add(players.get(i).getPlayerDeck().removeCardFromTop());
+            cardsPlayed.addCardToTop(players.get(i).getPlayerDeck().removeCardFromTop());
+        }
+        findRoundWinner(cardsPlayed);
+        return "";
+    }
+    
 }

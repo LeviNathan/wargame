@@ -58,6 +58,9 @@ public class Deck {
      * @return
      */
     public Card removeCardFromTop() {
+        if (deckOfCards.isEmpty()) {
+            return null;
+        }
         size = size - 1;
         return deckOfCards.pop();
     }
@@ -68,6 +71,9 @@ public class Deck {
      * @param card
      */
     public void addCardToTop(Card card) {
+        if(card == null) {
+            return;
+        }
         deckOfCards.add(size, card);
         size = size + 1;
     }
