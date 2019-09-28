@@ -34,6 +34,12 @@ public class temp{
         //game1.dealCards();
         System.out.println(game1.getNumOfPlayers());
 
+        /*for (int i = 0; i < game.getNumOfPlayers(); i++) {
+            System.out.println();
+            System.out.println(game.getPlayerList().get(i).getPlayerDeck().getDeck());
+        }*/
+        /*
+        for (int i = 0; i < game.getNumOfPlayers(); i++) {
 
         System.out.println("Game2");
         Wargame2 game2 = new Wargame2(2, players, masterDeck);
@@ -51,12 +57,21 @@ public class temp{
             System.out.println();
             System.out.println(game3.getPlayerList().get(i).getPlayerDeck().getSize());
         }
+        */
+        for(int i = 0; i < 10; i++)
+        {
+            game.playCards();
+        }
+        System.out.println(tempDeck1.getSize());
+            /*
+        for (int i = 0; i < game.getNumOfPlayers(); i++) {
 
         game3.playCards();
         for (int i = 0; i < game3.getNumOfPlayers(); i++) {
             System.out.println();
             System.out.println(game3.getPlayerList().get(i).getPlayerDeck().getSize());
         }
+        */
 
 
         /*
