@@ -7,7 +7,7 @@ public class Player {
     private int score;
     private Deck playerDeck;
 
-    public Player(Deck playerDeck, String name, int score) {
+    public Player(String name, int score, Deck playerDeck) {
         this.name = name;
         this.score = score;
         this.playerDeck = playerDeck;
@@ -29,11 +29,11 @@ public class Player {
         this.score = score;
     }
 
-    public Deck getDeck() {
+    public Deck getPlayerDeck() {
         return playerDeck;
     }
 
-    public void setDeck(Deck playerDeck) {
+    public void setPlayerDeck(Deck playerDeck) {
         this.playerDeck = playerDeck;
     }
 
@@ -53,20 +53,8 @@ public class Player {
      * when winning cards in variation1.
      */ 
     public void addCardsToDeck(Deck cardsWon) {
+        score = score + cardsWon.getSize();
         playerDeck.addCardToBottom(cardsWon);
-    }
-
-    /**
-     * @param cardsWon
-     * Adding the cards won into the score instead of
-     * back into the deck. This function is for 
-     * variation2 and variation3
-     */
-    public void addingScore(Deck cardsWon) {
-        while(!cardsWon.isEmpty()) {
-            cardsWon.removeCardFromTop();
-            score = score + 1;
-        }
     }
 
 }
