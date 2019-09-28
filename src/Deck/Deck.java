@@ -5,7 +5,7 @@ import java.util.*;
 public class Deck {
     private Stack<Card> deckOfCards;
     private int size;
-    
+
     public Deck(Stack<Card> deckOfCards, int size) {
         this.deckOfCards = deckOfCards;
         this.size = size;
@@ -28,37 +28,64 @@ public class Deck {
     }
 
     /**
-     * @return
-     * Checks if the deck is empty.
+     * @return Checks if the deck is empty.
      */
     public Boolean isEmpty() {
-        if(size == 0) {
+        if (size == 0) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     /**
-     * Will add cards to the bottom of the deck.
-     * Will also change the size of the deck when
-     * a card is added.
+     * Will add cards to the bottom of the deck. Will also change the size of the
+     * deck when a card is added.
+     * 
      * @param cardsWon
      */
-	public void addCardToBottom(Deck cardsWon) {
-        while(!cardsWon.isEmpty()) {
+    public void addCardToBottom(Deck cardsWon) {
+        while (!cardsWon.isEmpty()) {
             deckOfCards.add(0, cardsWon.removeCardFromTop());
             size = size + 1;
         }
     }
 
     /**
-     * Will remove a card from the top of the deck
-     * to be played. Adjust the deck size accordingly.
+     * Will remove a card from the top of the deck to be played. Adjust the deck
+     * size accordingly.
+     * 
      * @return
      */
     public Card removeCardFromTop() {
         size = size - 1;
         return deckOfCards.pop();
     }
+
+    /**
+     * For dealing purposes. Adds one card to the top of the deck.
+     * 
+     * @param card
+     */
+    public void addCardToTop(Card card) {
+        deckOfCards.add(size, card);
+        size = size + 1;
+    }
+
+    /**
+     * Creates the deck and shuffles the deck.
+     */
+    public void initializeDeck() {
+        String [] suits = { "CLUBS", "CLOVER", "DIAMOND", "HEARTS" };
+        String [] values = { "ACE", "TWO", "THREE", "FOUR", "FIVE", "SIX",
+                            "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING"};
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 13; j++) {
+                Card tempCard = new Card(suits[i], j + 1, values[j]);
+                addCardToTop(tempCard);
+            }
+        }
+        Collections.shuffle(deckOfCards);
+    }
+
 }

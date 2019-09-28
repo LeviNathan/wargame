@@ -1,0 +1,46 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - temp",
+            "request": "launch",
+            "mainClass": "temp",
+            "projectName": "CS4773Assignment2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - temp",
+            "request": "launch",
+            "mainClass": "Deck.temp",
+            "projectName": "CS4773Assignment2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - temp",
+            "request": "launch",
+            "mainClass": "Game.temp",
+            "projectName": "CS4773Assignment2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - main",
+            "request": "launch",
+            "mainClass": "Game.main",
+            "projectName": "CS4773Assignment2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - WargameOriginal",
+            "request": "launch",
+            "mainClass": "Game.WargameOriginal",
+            "projectName": "CS4773Assignment2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Card",
+            "request": "launch",
+            "mainClass": "Deck.Card",
+            "projectName": "CS4773Assignment2"
+        }
+    ]
+}
