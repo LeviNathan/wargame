@@ -53,8 +53,19 @@ public class Player {
      * when winning cards in variation1.
      */ 
     public void addCardsToDeck(Deck cardsWon) {
-        score = score + cardsWon.getSize();
         playerDeck.addCardToBottom(cardsWon);
     }
 
+    /**
+     * Adds the cards to the score of the player and not
+     * to the bottom of the player's deck. This is for 
+     * variation2 and variation3.
+     * @param cardsWon
+     */
+    public void addCardsToScore(Deck cardsWon) {
+        while(!cardsWon.isEmpty()) {
+            cardsWon.removeCardFromTop();
+            score = score + 1;
+        }
+    }
 }

@@ -88,4 +88,8 @@ public class Deck {
         Collections.shuffle(deckOfCards);
     }
 
+    public void shuffleDeck(Stack<Card> deckOfCards) {
+        Collections.shuffle(deckOfCards);
+    }
+
 }
