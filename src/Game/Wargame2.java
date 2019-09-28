@@ -16,7 +16,7 @@ public class Wargame2 extends WargameOriginal{
             if (super.getPlayerList().get(i).getPlayerDeck().isEmpty()) {
                 break;
             }
-            playCards();
+            printWinner(super.getPlayerList());
         }
         addCardsToPlayerScore();
         declareWinner();

@@ -74,7 +74,7 @@ public class Deck {
         if(card == null) {
             return;
         }
-        deckOfCards.add(size, card);
+        deckOfCards.add(card);
         size = size + 1;
     }
 

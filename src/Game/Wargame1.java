@@ -24,7 +24,7 @@ public class Wargame1 extends WargameOriginal {
     public void startGame() {
         int i = 0;
         while (i < numOfRounds) {
-            playCards();
+            printWinner(super.getPlayerList());
         }
         setPlayerScore();
         declareWinner();

@@ -28,12 +28,15 @@ public class temp{
         
         Stack<Card> masterStack = new Stack<Card>();
         Deck masterDeck = new Deck(masterStack, 0);
-        masterDeck.initializeDeck();
+        //masterDeck.initializeDeck();
         //WargameOriginal game = new WargameOriginal(players.size(), players, masterDeck);
         
         //System.out.println(game.getMasterDeck().getDeck());
         //game.dealCards();
-        System.out.println("Game1");
+        //game.playCards();
+        //System.out.println(game.getNumOfPlayers());
+       
+       /* System.out.println("Game1");
         Wargame1 game1 = new Wargame1(players, masterDeck, 10);
         game1.dealCards();
 
@@ -63,9 +66,25 @@ public class temp{
         //game2.dealCards();
         System.out.println(game2.getNumOfPlayers());
 */
-/*
+
         System.out.println("Game3");
         Wargame3 game3 = new Wargame3(players, masterDeck);
+        //game3.dealCards();
+        Card kingCard = new Card("HEARTS", 13, "KING");
+        Card queenCard = new Card("HEARTS", 12, "QUEEN");
+        Card jackCard = new Card("HEARTS", 11, "JACK");
+        masterDeck.addCardToTop(kingCard);
+        masterDeck.addCardToTop(kingCard);
+        masterDeck.addCardToTop(kingCard);
+        
+        masterDeck.addCardToTop(kingCard);
+        masterDeck.addCardToTop(kingCard);
+        masterDeck.addCardToTop(queenCard);
+        
+        masterDeck.addCardToTop(kingCard);
+        masterDeck.addCardToTop(jackCard);
+        masterDeck.addCardToTop(queenCard);
+        
         game3.dealCards();
         System.out.println(game3.getNumOfPlayers());
         game3.addCardsToPlayerScore();
@@ -73,7 +92,7 @@ public class temp{
             System.out.println(game3.getPlayerList().get(i).getScore());
         }
         game3.declareWinner();
-  *//*      
+  /*      
 
         System.out.println(game3.getMasterDeck().getSize());
         for (int i = 0; i < game3.getNumOfPlayers(); i++) {
@@ -81,6 +100,8 @@ public class temp{
             System.out.println(game3.getPlayerList().get(i).getPlayerDeck().getSize());
         }
         */
+        /*
+        for(int i = 0; i < 10; i++)
         /*for(int i = 0; i < 10; i++)
         {
             game1.playCards();
