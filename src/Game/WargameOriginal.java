@@ -69,15 +69,8 @@ public class WargameOriginal {
     }
 
     public void findRoundWinner(Deck playedCards) {
-<<<<<<< HEAD
         int winScore = 0;
-        String winner = "";
-        
-        for(int i = 0; i < numOfPlayers; i++){
-            System.out.println(playerList.get(i).getName());
-            System.out.println(playedCards.getDeck().get(i).getValue());
-        }
-        
+        String winner = "";        
         for(int i = 0; i < numOfPlayers; i++)
         {
             if(winScore == 0){
@@ -89,12 +82,17 @@ public class WargameOriginal {
             {
                 winScore = playedCards.getDeck().get(i).getValue();
                 winner = playerList.get(i).getName();
+                continue;
+            }
+            if(winScore == playedCards.getDeck().get(i).getValue()){
+                System.out.println("War!");
             }
         }
-        System.out.println(winner);
+        System.out.println(winner + " wins the round");
+        /*
         for(int i = 0; i < numOfPlayers; i++){
             if(winner == playerList.get(i).getName()){
-                playerList.get(i).addScore();
+                playerList.get(i).addCardToScore();
             }
         } 
         System.out.println(winner + " wins the round");
@@ -105,10 +103,7 @@ public class WargameOriginal {
             else
                 System.out.printf("%s %d", playerList.get(i).getName(), playerList.get(i).getScore());
         }
+        */
         System.out.println();
-=======
-        // TODO: Account for War! situation
-        // TODO: Add cards to score or add to score pile.
->>>>>>> 8886e7b2bda3917a8a66c8f487dbcdce53620623
     }
 }
