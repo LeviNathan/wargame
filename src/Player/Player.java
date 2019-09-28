@@ -6,11 +6,13 @@ public class Player {
     private String name;
     private int score;
     private Deck playerDeck;
+    private ScorePile pointsPile;
 
-    public Player(String name, int score, Deck playerDeck) {
+    public Player(String name, int score, Deck playerDeck, ScorePile pointsPile) {
         this.name = name;
         this.score = score;
         this.playerDeck = playerDeck;
+        this.pointsPile = pointsPile;
     }
 
     public String getName() {
@@ -37,8 +39,12 @@ public class Player {
         this.playerDeck = playerDeck;
     }
 
-    public void addScore(){
-        score++;
+    public ScorePile getPointPile() {
+        return pointsPile;
+    }
+
+    public void setPointsPile(ScorePile pointPile) {
+        this.pointsPile = pointPile;
     }
 
     /**

@@ -1,17 +1,11 @@
 package Player;
 
-public class ScorePile {
-    private int score;
+import Deck.*;
+import java.util.*;
 
-    public ScorePile(int score) {
-        this.score = score;
-    }
+public class ScorePile extends Deck{
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
+    public ScorePile(Stack<Card> deckOfCards, int size) {
+        super(deckOfCards, size);
     }
 }

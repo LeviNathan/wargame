@@ -8,7 +8,6 @@ public class WargameOriginal {
     private int numOfPlayers;
     private ArrayList<Player> playerList;
     private Deck masterDeck;
-    private Deck scorePile;
 
     public WargameOriginal(int numOfPlayers, ArrayList<Player> playerList, Deck masterDeck) {
         this.numOfPlayers = numOfPlayers;
@@ -40,14 +39,6 @@ public class WargameOriginal {
         this.masterDeck = masterDeck;
     }
 
-    public Deck getScorePile() {
-        return scorePile;
-    }
-
-    public void setScorePile(Deck scorePile) {
-        this.scorePile = scorePile;
-    }
-
     /**
      * Deals the cards to start the game.
      */
@@ -60,10 +51,6 @@ public class WargameOriginal {
                 i = 0;
             }
         }
-    }
-
-    public void startGame() {
-        // This might have to be in Wargame1 and Wargame2
     }
 
     public void playCards() {
@@ -99,12 +86,6 @@ public class WargameOriginal {
                 winner = playerList.get(i).getName();
             }
         }
-        System.out.println(winner);
-        for(int i = 0; i < numOfPlayers; i++){
-            if(winner == playerList.get(i).getName()){
-                playerList.get(i).addScore();
-            }
-        } 
         System.out.println(winner + " wins the round");
         System.out.printf("Score is ");
         for(int i = 0; i < numOfPlayers; i++){
@@ -126,6 +107,21 @@ public class WargameOriginal {
         }
         findRoundWinner(cardsPlayed);
         return "";
+    }
+
+    public void declareWinner() {
+        Player winner = new Player("", 0, null, null);
+        String winnerStr = "";
+        for (int i = 0; i < numOfPlayers; i++) {
+            if (playerList.get(i).getScore() > winner.getScore()) {
+                winner = playerList.get(i);
+                winnerStr = "";
+            }
+            else if (playerList.get(i).getScore() == winner.getScore()) {
+                winnerStr = winnerStr + " and " + playerList.get(i).getName();
+            }
+        }
+        System.out.println(winner.getName() + winnerStr + " wins!");
     }
     
 }
