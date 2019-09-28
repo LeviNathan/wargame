@@ -54,7 +54,6 @@ public class WargameOriginal {
     }
 
     public void playCards() {
-        System.out.println("Hello");
         Stack<Card> playedCards = new Stack<Card>();
         Deck cardsPlayed = new Deck(playedCards, 0);
         for (int i = 0; i < numOfPlayers; i++) {
@@ -66,6 +65,41 @@ public class WargameOriginal {
     }
 
     public void findRoundWinner(Deck playedCards) {
-
+        int winScore = 0;
+        String winner = "";
+        
+        for(int i = 0; i < numOfPlayers; i++){
+            System.out.println(playerList.get(i).getName());
+            System.out.println(playedCards.getDeck().get(i).getValue());
+        }
+        
+        for(int i = 0; i < numOfPlayers; i++)
+        {
+            if(winScore == 0){
+                winScore = playedCards.getDeck().get(i).getValue();
+                winner = playerList.get(i).getName();
+                continue;
+            }
+            if(winScore < playedCards.getDeck().get(i).getValue())
+            {
+                winScore = playedCards.getDeck().get(i).getValue();
+                winner = playerList.get(i).getName();
+            }
+        }
+        System.out.println(winner);
+        for(int i = 0; i < numOfPlayers; i++){
+            if(winner == playerList.get(i).getName()){
+                playerList.get(i).addScore();
+            }
+        } 
+        System.out.println(winner + " wins the round");
+        System.out.printf("Score is ");
+        for(int i = 0; i < numOfPlayers; i++){
+            if(i < numOfPlayers-1)
+                System.out.printf("%s %d, ", playerList.get(i).getName(), playerList.get(i).getScore());
+            else
+                System.out.printf("%s %d", playerList.get(i).getName(), playerList.get(i).getScore());
+        }
+        System.out.println();
     }
 }

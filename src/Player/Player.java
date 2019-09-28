@@ -37,6 +37,10 @@ public class Player {
         this.playerDeck = playerDeck;
     }
 
+    public void addScore(){
+        score++;
+    }
+
     /**
      * @return
      * Takes a card from the top of the player's deck

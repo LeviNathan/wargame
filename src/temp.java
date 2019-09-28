@@ -34,19 +34,23 @@ public class temp{
             System.out.println();
             System.out.println(game.getPlayerList().get(i).getPlayerDeck().getDeck());
         }*/
-
-        System.out.println(game.getMasterDeck().getSize());
+        /*
         for (int i = 0; i < game.getNumOfPlayers(); i++) {
             System.out.println();
             System.out.println(game.getPlayerList().get(i).getPlayerDeck().getSize());
         }
-
-        game.playCards();
+        */
+        for(int i = 0; i < 10; i++)
+        {
+            game.playCards();
+        }
+        System.out.println(tempDeck1.getSize());
+            /*
         for (int i = 0; i < game.getNumOfPlayers(); i++) {
             System.out.println();
             System.out.println(game.getPlayerList().get(i).getPlayerDeck().getSize());
         }
-
+        */
         /*
         System.out.println(player.getPlayerDeck().getDeck());
         System.out.println(player.getPlayerDeck().getSize());
