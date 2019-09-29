@@ -25,7 +25,9 @@ public class Wargame1 extends WargameOriginal {
         dealCards();
         int i = 0;
         while (i < numOfRounds) {
-            printWinner(super.getPlayerList());
+
+            Player winner = printWinner(super.getPlayerList());
+            winner.getPlayerDeck().addCardToBottom(winner.getPointPile());
             System.out.println();
             i++;
         }
@@ -37,9 +39,23 @@ public class Wargame1 extends WargameOriginal {
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
             Player selectedPlayer = super.getPlayerList().get(i);
             selectedPlayer.setScore(selectedPlayer.getPlayerDeck().getSize());
-            System.out.println(selectedPlayer.getScore());
         }
     }
 
+    public void declareWinner() {
+        Player winner = new Player("", 0, null, null);
+        String winnerStr = "";
+        for (int i = 0; i < super.getNumOfPlayers(); i++) {
+            if (super.getPlayerList().get(i).getScore() > winner.getScore()) {
+                winner = super.getPlayerList().get(i);
+                winnerStr = "";
+            }
+            else if (super.getPlayerList().get(i).getScore() == winner.getScore()) {
+                winnerStr = winnerStr + " and " + super.getPlayerList().get(i).getName();
+            }
+        }
+        System.out.println(winner.getName() + winnerStr + " wins!");
+    }
+   
 
 }

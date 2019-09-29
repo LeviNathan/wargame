@@ -7,18 +7,21 @@ public class temp{
     public static void main(String[] args) {
         Stack<Card> stackCard1 = new Stack<Card>();
         Deck tempDeck1 = new Deck(stackCard1, 0);
-        ScorePile tempPile1 = new ScorePile(null, 5);
+        Stack<Card> scorePile1 = new Stack<Card>();
+        ScorePile tempPile1 = new ScorePile(scorePile1, 0);
         Player player1 = new Player("Nathan", 0, tempDeck1, tempPile1);
 
         Stack<Card> stackCard2 = new Stack<Card>();
         Deck tempDeck2 = new Deck(stackCard2, 0);
-        ScorePile tempPile2 = new ScorePile(null, 3);
+        Stack<Card> scorePile2 = new Stack<Card>();
+        ScorePile tempPile2 = new ScorePile(scorePile2, 0);
         Player player2 = new Player("Chan", 0, tempDeck2, tempPile2);
 
         
         Stack<Card> stackCard3 = new Stack<Card>();
         Deck tempDeck3 = new Deck(stackCard3, 0);
-        ScorePile tempPile3 = new ScorePile(null, 10);
+        Stack<Card> scorePile3 = new Stack<Card>();
+        ScorePile tempPile3 = new ScorePile(scorePile3, 0);
         Player player3 = new Player("Solomon", 0, tempDeck3, tempPile3);
 
         ArrayList<Player> players = new ArrayList<Player>();
@@ -35,10 +38,11 @@ public class temp{
         //game.dealCards();
         //game.playCards();
         //System.out.println(game.getNumOfPlayers());
-       
+
         System.out.println("Game1");
         Wargame1 game1 = new Wargame1(players, masterDeck, 10);
         game1.startGame();
+
 
         
         /*System.out.println(game1.getNumOfPlayers());
@@ -52,14 +56,11 @@ public class temp{
             System.out.println();
             System.out.println(game.getPlayerList().get(i).getPlayerDeck().getDeck());
         }*/
-        /*
-        for (int i = 0; i < game.getNumOfPlayers(); i++) {
 
-        System.out.println("Game2");
+        /*System.out.println("Game2");
         Wargame2 game2 = new Wargame2(2, players, masterDeck);
-        //game2.dealCards();
-        System.out.println(game2.getNumOfPlayers());
-*/
+        game2.startGame();
+        *///System.out.println(game2.getNumOfPlayers());
 
 /*
         System.out.println("Game3");

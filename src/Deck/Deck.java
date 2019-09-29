@@ -46,7 +46,11 @@ public class Deck {
      */
     public void addCardToBottom(Deck cardsWon) {
         while (!cardsWon.isEmpty()) {
-            deckOfCards.add(0, cardsWon.removeCardFromTop());
+            if(deckOfCards.isEmpty()) {
+                deckOfCards.add(cardsWon.removeCardFromTop());
+            } else {
+                deckOfCards.add(0, cardsWon.removeCardFromTop());
+            }
             size = size + 1;
         }
     }
