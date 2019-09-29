@@ -67,7 +67,6 @@ public class WargameOriginal {
         for (int i = 0; i < playerList.size(); i++) {
             Card playedCard = playerList.get(i).getPlayerDeck().removeCardFromTop();
             deckOfCardsPlayed.addCardToTop(playedCard);
-            System.out.println(playerList.get(i).getName() + " plays " + playedCard.toString());
         }
         return deckOfCardsPlayed;
     }
@@ -83,7 +82,9 @@ public class WargameOriginal {
             Deck deckOfCardsPlayed = playCards(playerList);
             int best = 0;
             for (int i = 0; i < numOfPlayers; i++) {
-                int playerCardValue  = deckOfCardsPlayed.getDeck().get(i).getValue();
+                Card playerCard = deckOfCardsPlayed.getDeck().get(i);
+                int playerCardValue = playerCard.getValue();
+                System.out.println(playerList.get(i).getName() + " plays " + playerCard.toString());
                 if (best < playerCardValue) {
                     warIndicator = 0;
                     best = playerCardValue;
@@ -95,7 +96,7 @@ public class WargameOriginal {
             if (warIndicator == 1) {
                 System.out.println("War!");    
                 winner = null;
-                deckOfCardsPlayed.addCardToBottom(warRound(playerList));
+                deckOfCardsPlayed.addCardToBottom(playCards(playerList));
             }
             scorePile.addCardToBottom(deckOfCardsPlayed);
         }
@@ -104,21 +105,4 @@ public class WargameOriginal {
         
         return winner;
     }
-
-
-    public Deck warRound(ArrayList<Player> warPlayers) {
-        Stack<Card> scorePile = new Stack<Card>();
-        Deck deckOfScorePile = new Deck(scorePile, 0);
-        for (int i = 0; i < warPlayers.size(); i++) {
-            Card newCard = null;
-            if (!warPlayers.get(i).getPlayerDeck().isEmpty()) {
-                newCard = warPlayers.get(i).getPlayerDeck().removeCardFromTop();
-            }
-            if (warPlayers.get(i).getPlayerDeck().isEmpty()) {
-
-            }
-            deckOfScorePile.addCardToTop(newCard);
-        }
-        return deckOfScorePile;
-    } 
 }
