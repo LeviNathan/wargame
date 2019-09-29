@@ -24,11 +24,11 @@ public class temp{
         ArrayList<Player> players = new ArrayList<Player>();
         players.add(player1);
         players.add(player2);
-        players.add(player3);
+        //players.add(player3);
         
         Stack<Card> masterStack = new Stack<Card>();
         Deck masterDeck = new Deck(masterStack, 0);
-        //masterDeck.initializeDeck();
+        masterDeck.initializeDeck();
         //WargameOriginal game = new WargameOriginal(players.size(), players, masterDeck);
         
         //System.out.println(game.getMasterDeck().getDeck());
@@ -36,16 +36,10 @@ public class temp{
         //game.playCards();
         //System.out.println(game.getNumOfPlayers());
        
-       /* System.out.println("Game1");
+        System.out.println("Game1");
         Wargame1 game1 = new Wargame1(players, masterDeck, 10);
-        game1.dealCards();
+        game1.startGame();
 
-        game1.getPlayerList().get(0).getPlayerDeck().removeCardFromTop();
-        game1.setPlayerScore();
-        for(int i = 0; i < game1.getNumOfPlayers(); i++) {
-            System.out.println(game1.getPlayerList().get(i).getPlayerDeck().getSize());
-        }
-        game1.declareWinner();
         
         /*System.out.println(game1.getNumOfPlayers());
         //System.out.println(game1.getPlayerList().get(1).getPlayerDeck().getDeck());
@@ -67,6 +61,7 @@ public class temp{
         System.out.println(game2.getNumOfPlayers());
 */
 
+/*
         System.out.println("Game3");
         Wargame3 game3 = new Wargame3(players, masterDeck);
         //game3.dealCards();
@@ -92,6 +87,7 @@ public class temp{
             System.out.println(game3.getPlayerList().get(i).getScore());
         }
         game3.declareWinner();
+        */
   /*      
 
         System.out.println(game3.getMasterDeck().getSize());

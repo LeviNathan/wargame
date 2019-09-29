@@ -22,9 +22,12 @@ public class Wargame1 extends WargameOriginal {
     }
 
     public void startGame() {
+        dealCards();
         int i = 0;
         while (i < numOfRounds) {
             printWinner(super.getPlayerList());
+            System.out.println();
+            i++;
         }
         setPlayerScore();
         declareWinner();
@@ -34,6 +37,7 @@ public class Wargame1 extends WargameOriginal {
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
             Player selectedPlayer = super.getPlayerList().get(i);
             selectedPlayer.setScore(selectedPlayer.getPlayerDeck().getSize());
+            System.out.println(selectedPlayer.getScore());
         }
     }
 

@@ -11,12 +11,14 @@ public class Wargame2 extends WargameOriginal{
     }
     
     public void startGame() {
+        dealCards();
         int i = 0;
         while (i < getNumOfPlayers()) {
             if (super.getPlayerList().get(i).getPlayerDeck().isEmpty()) {
                 break;
             }
             printWinner(super.getPlayerList());
+            i++;
         }
         addCardsToPlayerScore();
         declareWinner();
