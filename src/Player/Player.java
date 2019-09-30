@@ -2,12 +2,18 @@ package Player;
 
 import Deck.*;
 
+/**
+ * Player class. Contains the name, score, deck, and the cards within the points pile of the player.
+ */
 public class Player {
     private String name;
     private int score;
     private Deck playerDeck;
     private ScorePile pointsPile;
 
+    /**
+     * Constructor for the player.
+     */
     public Player(String name, int score, Deck playerDeck, ScorePile pointsPile) {
         this.name = name;
         this.score = score;
@@ -15,34 +21,66 @@ public class Player {
         this.pointsPile = pointsPile;
     }
 
+    /**
+     * Getter for the name of the player.
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter for the name of the player.
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter for the score of the player.
+     * @return
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * Setter for the score of the player.
+     * @param score
+     */
     public void setScore(int score) {
         this.score = score;
     }
 
+    /**
+     * Getter for the player's deck.
+     * @return
+     */
     public Deck getPlayerDeck() {
         return playerDeck;
     }
 
+    /**
+     * Setter for the player's deck.
+     * @param playerDeck
+     */
     public void setPlayerDeck(Deck playerDeck) {
         this.playerDeck = playerDeck;
     }
 
+    /**
+     * Getter for the pile of cards within the points pile.
+     * @return
+     */
     public ScorePile getPointPile() {
         return pointsPile;
     }
 
+    /**
+     * Setter for the points pile.
+     * @param pointPile
+     */
     public void setPointsPile(ScorePile pointPile) {
         this.pointsPile = pointPile;
     }

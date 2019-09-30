@@ -2,33 +2,56 @@ package Deck;
 
 import java.util.*;
 
+/**
+ * Deck class. Contains the stack of card objects and the size of the deck.
+ */
 public class Deck {
     private Stack<Card> deckOfCards;
     private int size;
 
+    /**
+     * Deck constructor.
+     */
     public Deck(Stack<Card> deckOfCards, int size) {
         this.deckOfCards = deckOfCards;
         this.size = size;
     }
 
+    /**
+     * Getter for the stack of card objects.
+     * @return
+     */
     public Stack<Card> getDeck() {
         return deckOfCards;
     }
 
+    /**
+     * Setter for the stack of card objects.
+     * @param deckOfCards
+     */
     public void setDeck(Stack<Card> deckOfCards) {
         this.deckOfCards = deckOfCards;
     }
 
+    /**
+     * Getter for the size of the deck.
+     * @return
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * Setter for the size of the deck.
+     * @param size
+     */
     public void setSize(int size) {
         this.size = size;
     }
 
     /**
-     * @return Checks if the deck is empty.
+     * Checks if the deck is empty.
+     * @return
      */
     public Boolean isEmpty() {
         if (size == 0) {
@@ -41,7 +64,6 @@ public class Deck {
     /**
      * Will add cards to the bottom of the deck. Will also change the size of the
      * deck when a card is added.
-     * 
      * @param cardsWon
      */
     public void addCardToBottom(Deck cardsWon) {
@@ -58,7 +80,6 @@ public class Deck {
     /**
      * Will remove a card from the top of the deck to be played. Adjust the deck
      * size accordingly.
-     * 
      * @return
      */
     public Card removeCardFromTop() {
@@ -71,7 +92,6 @@ public class Deck {
 
     /**
      * For dealing purposes. Adds one card to the top of the deck.
-     * 
      * @param card
      */
     public void addCardToTop(Card card) {
@@ -92,10 +112,12 @@ public class Deck {
                 addCardToTop(tempCard);
             }
         }
-        Collections.shuffle(deckOfCards);
     }
 
-    public void shuffleDeck(Stack<Card> deckOfCards) {
+    /**
+     * Shuffles the deck of cards
+     */    
+    public void shuffleDeck() {
         Collections.shuffle(deckOfCards);
     }
 

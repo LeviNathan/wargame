@@ -4,12 +4,22 @@ import java.util.*;
 import Deck.*;
 import Player.*;
 
+/**
+ * The 2nd variation of the war card game. It extends the WargameOriginal class. 
+ * Contains 2 players but the cards will not return to playeys' hands when won.
+ */
 public class Wargame2 extends WargameOriginal{
 
+    /**
+     * Constructor for the class. Not different from the WargameOriginal classes' constructor.
+     */
     public Wargame2(int numOfPlayers, ArrayList<Player> playerList, Deck masterDeck) {
         super(numOfPlayers, playerList, masterDeck);
     }
     
+    /**
+     * Starts the game of war.
+     */
     public void startGame() {
         dealCards();
         ArrayList<Player> playersInPlay = super.getPlayerList();
@@ -22,6 +32,9 @@ public class Wargame2 extends WargameOriginal{
         declareWinner();
     }
 
+    /**
+     * Adds the cards from the player's decks and the players' scorepils at the end of the game.
+     */
     public void addCardsToPlayerScore() {
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
             Player player = super.getPlayerList().get(i);
@@ -30,6 +43,10 @@ public class Wargame2 extends WargameOriginal{
         }
     }
 
+    /**
+     * Finds the player with the most points and declares the winner.
+     * Accounts for multiple winners.
+     */
     public void declareWinner() {
         Player winner = new Player("", 0, null, null);
         String winnerStr = "";
@@ -45,6 +62,9 @@ public class Wargame2 extends WargameOriginal{
         System.out.println(winner.getName() + winnerStr + " wins!");
     }
    
+    /**
+     * Prints the score of all the players for each round that is played. 
+     */
     public void printScore() {
         String scoreString = "Score is ";
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
