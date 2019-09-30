@@ -60,7 +60,6 @@ public class Wargame2 extends WargameOriginal{
             }
         }
         return winner.getName() + winnerStr + " wins!";
-        //System.out.println(winner.getName() + winnerStr + " wins!");
     }
     /**
      * Prints the score of all the players for each round that is played. 
