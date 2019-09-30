@@ -58,7 +58,7 @@ public class Wargame1 extends WargameOriginal {
             i++;
         }
         setPlayerScore();
-        declareWinner();
+        System.out.println(declareWinner());
     }
 
     /**
@@ -75,7 +75,7 @@ public class Wargame1 extends WargameOriginal {
      * Finds the winner of the game and declares them as the winner.
      * Accounts for Tie games.
      */
-    public void declareWinner() {
+    public String declareWinner() {
         Player winner = new Player("", 0, null, null);
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
             if (super.getPlayerList().get(i).getScore() > winner.getScore()) {
@@ -83,11 +83,9 @@ public class Wargame1 extends WargameOriginal {
             }
             else if (super.getPlayerList().get(i).getScore() == winner.getScore()) {
                 System.out.println("Tie Game!");
-                return;
+                return"";
             }
         }
-        System.out.println(winner.getName() + " wins!");
+        return winner.getName() + " wins!";
     }
-   
-
 }

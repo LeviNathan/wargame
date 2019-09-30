@@ -29,7 +29,7 @@ public class Wargame2 extends WargameOriginal{
             System.out.println();
         }
         addCardsToPlayerScore();
-        declareWinner();
+        System.out.println(declareWinner());
     }
 
     /**
@@ -47,7 +47,7 @@ public class Wargame2 extends WargameOriginal{
      * Finds the player with the most points and declares the winner.
      * Accounts for multiple winners.
      */
-    public void declareWinner() {
+    public String declareWinner() {
         Player winner = new Player("", -1, null, null);
         String winnerStr = "";
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
@@ -59,9 +59,9 @@ public class Wargame2 extends WargameOriginal{
                 winnerStr = winnerStr + " and " + super.getPlayerList().get(i).getName();
             }
         }
-        System.out.println(winner.getName() + winnerStr + " wins!");
+        return winner.getName() + winnerStr + " wins!";
+        //System.out.println(winner.getName() + winnerStr + " wins!");
     }
-   
     /**
      * Prints the score of all the players for each round that is played. 
      */
