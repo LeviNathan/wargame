@@ -48,7 +48,7 @@ public class Wargame2 extends WargameOriginal{
      * Accounts for multiple winners.
      */
     public void declareWinner() {
-        Player winner = new Player("", 0, null, null);
+        Player winner = new Player("", -1, null, null);
         String winnerStr = "";
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
             if (super.getPlayerList().get(i).getScore() > winner.getScore()) {

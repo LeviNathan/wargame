@@ -31,8 +31,8 @@ public class temp{
         
         Stack<Card> masterStack = new Stack<Card>();
         Deck masterDeck = new Deck(masterStack, 0);
-        masterDeck.initializeDeck();
-        masterDeck.shuffleDeck();
+        //masterDeck.initializeDeck();
+        //masterDeck.shuffleDeck();
         //WargameOriginal game = new WargameOriginal(players.size(), players, masterDeck);
         
         //System.out.println(game.getMasterDeck().getDeck());
