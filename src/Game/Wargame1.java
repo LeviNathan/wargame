@@ -25,9 +25,15 @@ public class Wargame1 extends WargameOriginal {
         dealCards();
         int i = 0;
         while (i < numOfRounds) {
-
-            Player winner = printWinner(super.getPlayerList());
+            Player winner = findRoundWinner(super.getPlayerList());
+            if(winner == null) {
+                break;
+            }
             winner.getPlayerDeck().addCardToBottom(winner.getPointPile());
+            Player player1 = super.getPlayerList().get(0);
+            Player player2 = super.getPlayerList().get(1);
+            System.out.println("Score is: " + player1.getName() + " " + player1.getPlayerDeck().getSize() + ", " 
+                                            + player2.getName() + " " + player2.getPlayerDeck().getSize());
             System.out.println();
             i++;
         }
@@ -44,17 +50,16 @@ public class Wargame1 extends WargameOriginal {
 
     public void declareWinner() {
         Player winner = new Player("", 0, null, null);
-        String winnerStr = "";
         for (int i = 0; i < super.getNumOfPlayers(); i++) {
             if (super.getPlayerList().get(i).getScore() > winner.getScore()) {
                 winner = super.getPlayerList().get(i);
-                winnerStr = "";
             }
             else if (super.getPlayerList().get(i).getScore() == winner.getScore()) {
-                winnerStr = winnerStr + " and " + super.getPlayerList().get(i).getName();
+                System.out.println("Tie Game!");
+                return;
             }
         }
-        System.out.println(winner.getName() + winnerStr + " wins!");
+        System.out.println(winner.getName() + " wins!");
     }
    
 

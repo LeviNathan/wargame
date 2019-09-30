@@ -43,35 +43,33 @@ public class WargameOriginal {
      * Deals the cards to start the game.
      */
     public void dealCards() {
-        int i = 0;
-        while(!masterDeck.getDeck().empty()) {
-            playerList.get(i).getPlayerDeck().addCardToTop(masterDeck.removeCardFromTop());
-            i++;
-            if (i == numOfPlayers) {
-                i = 0;
+        int numOfCards = masterDeck.getSize()/numOfPlayers;
+        for(int i = 0; i < numOfCards; i++) {
+            for(int j = 0; j < numOfPlayers; j++) {
+                playerList.get(j).getPlayerDeck().addCardToTop(masterDeck.removeCardFromTop());
             }
         }
-    }
-
-    public void removePlayer(Player loser) {
-        playerList.remove(loser);
-    }
-
-    public Player printWinner(ArrayList<Player> players) {
-        return findRoundWinner();
     }
 
     public Deck playCards(ArrayList<Player> playerList) {
         Stack<Card> cardStack = new Stack<Card>();
         Deck deckOfCardsPlayed = new Deck(cardStack, 0);
         for (int i = 0; i < playerList.size(); i++) {
-            Card playedCard = playerList.get(i).getPlayerDeck().removeCardFromTop();
-            deckOfCardsPlayed.addCardToTop(playedCard);
+            if (playerList.get(i).getPlayerDeck().isEmpty()) {
+                return deckOfCardsPlayed;
+            }
+        }
+        Card playedCard = null;
+        for (int i = 0; i < playerList.size(); i++) {
+            playedCard = playerList.get(i).getPlayerDeck().removeCardFromTop();
+            if(playedCard != null) {
+                deckOfCardsPlayed.addCardToTop(playedCard);
+            }
         }
         return deckOfCardsPlayed;
     }
 
-    public Player findRoundWinner() {
+    public Player findRoundWinner(ArrayList<Player> playerList) {
         Player winner = null;
         Stack<Card> cardsOfScorePile = new Stack<Card>();
         ScorePile scorePile = new ScorePile(cardsOfScorePile, 0);
@@ -80,8 +78,11 @@ public class WargameOriginal {
         while (warIndicator == 1) {
             warIndicator = 0;
             Deck deckOfCardsPlayed = playCards(playerList);
+            if (deckOfCardsPlayed.isEmpty()) {
+                return winner;
+            }
             int best = 0;
-            for (int i = 0; i < numOfPlayers; i++) {
+            for (int i = 0; i < deckOfCardsPlayed.getSize(); i++) {
                 Card playerCard = deckOfCardsPlayed.getDeck().get(i);
                 int playerCardValue = playerCard.getValue();
                 System.out.println(playerList.get(i).getName() + " plays " + playerCard.toString());
@@ -92,11 +93,12 @@ public class WargameOriginal {
                 } else if (best == playerCardValue) {
                     warIndicator = 1;
                 }
+            
             }
             if (warIndicator == 1) {
                 System.out.println("War!");    
                 winner = null;
-                deckOfCardsPlayed.addCardToBottom(playCards(playerList));
+                deckOfCardsPlayed.addCardToBottom(warRound(playerList));
             }
             scorePile.addCardToBottom(deckOfCardsPlayed);
         }
@@ -104,5 +106,21 @@ public class WargameOriginal {
         winner.getPointPile().addCardToBottom(scorePile);
         
         return winner;
+    }
+
+    public Deck warRound(ArrayList<Player> playerList) {
+        Stack<Card> cardStack = new Stack<Card>();
+        Deck deckOfCardsPlayed = new Deck(cardStack, 0);
+        Card playedCard = null;
+        for (int i = 0; i < playerList.size(); i++) {
+            
+            playedCard = playerList.get(i).getPlayerDeck().removeCardFromTop();
+            if (playerList.get(i).getPlayerDeck().isEmpty()) {
+                playerList.get(i).getPlayerDeck().addCardToTop(playedCard);
+            } else {
+                deckOfCardsPlayed.addCardToTop(playedCard);
+            }
+        }
+        return deckOfCardsPlayed;
     }
 }

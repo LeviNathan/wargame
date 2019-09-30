@@ -36,6 +36,6 @@ public class Card {
     }
 
     public String toString() {
-        return stringValue + " of " + suit + " as up card." + value;
+        return stringValue + " of " + suit + " as up card.";
     }
 }

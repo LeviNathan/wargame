@@ -12,12 +12,14 @@ public class Wargame2 extends WargameOriginal{
     
     public void startGame() {
         dealCards();
-        int flag = 1;
-        while (flag == 1) {
-            flag = 0;
+        ArrayList<Player> playersInPlay = super.getPlayerList();
+        while (!playersInPlay.get(0).getPlayerDeck().isEmpty()) {
+            findRoundWinner(playersInPlay);
+            printScore();
+            System.out.println();
         }
         addCardsToPlayerScore();
-        //declareWinner();
+        declareWinner();
     }
 
     public void addCardsToPlayerScore() {
@@ -26,5 +28,32 @@ public class Wargame2 extends WargameOriginal{
             int finalScore = player.getPlayerDeck().getSize() + player.getPointPile().getSize();
             player.setScore(finalScore);
         }
+    }
+
+    public void declareWinner() {
+        Player winner = new Player("", 0, null, null);
+        String winnerStr = "";
+        for (int i = 0; i < super.getNumOfPlayers(); i++) {
+            if (super.getPlayerList().get(i).getScore() > winner.getScore()) {
+                winner = super.getPlayerList().get(i);
+                winnerStr = "";
+            }
+            else if (super.getPlayerList().get(i).getScore() == winner.getScore()) {
+                winnerStr = winnerStr + " and " + super.getPlayerList().get(i).getName();
+            }
+        }
+        System.out.println(winner.getName() + winnerStr + " wins!");
+    }
+   
+    public void printScore() {
+        String scoreString = "Score is ";
+        for (int i = 0; i < super.getNumOfPlayers(); i++) {
+            if (i != 0) {
+                scoreString = scoreString + ", ";
+            }
+            Player selectedPlayer= super.getPlayerList().get(i);
+            scoreString = scoreString + selectedPlayer.getName() + " " + selectedPlayer.getPointPile().getSize();
+        }
+        System.out.println(scoreString);
     }
 }

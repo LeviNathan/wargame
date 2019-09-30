@@ -75,10 +75,7 @@ public class Deck {
      * @param card
      */
     public void addCardToTop(Card card) {
-        if(card == null) {
-            return;
-        }
-        deckOfCards.add(card);
+        deckOfCards.push(card);
         size = size + 1;
     }
 
